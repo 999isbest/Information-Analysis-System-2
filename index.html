@@ -35,6 +35,135 @@
             z-index: 0;
         }
 
+        /* ========== 加载动画样式 ========== */
+        #loading-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #000814;
+            z-index: 9999;
+            transition: opacity 0.8s ease-out;
+        }
+
+        /* 标题动画样式 */
+        .echo-title {
+            font-size: 6rem;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.7),
+                         0 0 20px rgba(56, 189, 248, 0.5);
+            animation: pulse 2s infinite alternate;
+            text-align: center;
+        }
+
+        /* 标题呼吸动画 */
+        @keyframes pulse {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* 副标题样式 */
+        .singularity-log {
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 50px;
+            color: #93c5fd;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* 加载日志文本容器 */
+        .loading-log {
+            width: 400px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+
+        /* 加载日志文本渐入动画 */
+        .loading-log p {
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        /* 逐个延迟显示日志文本 */
+        .loading-log p:nth-child(1) { animation-delay: 0.2s; }
+        .loading-log p:nth-child(2) { animation-delay: 0.5s; }
+        .loading-log p:nth-child(3) { animation-delay: 0.8s; }
+        .loading-log p:nth-child(4) { animation-delay: 1.1s; }
+        .loading-log p:nth-child(5) { animation-delay: 1.4s; }
+        .loading-log p:nth-child(6) { animation-delay: 1.7s; }
+
+        /* 日志文本淡入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* 进度条容器 */
+        .progress-container {
+            width: 400px;
+            height: 8px;
+            background: #001233;
+            border: 1px solid #6366f1;
+            border-radius: 4px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 进度条样式 */
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #38bdf8, #8b5cf6);
+            width: 0%;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+            animation: progressFill 3s ease-in-out forwards;
+        }
+
+        /* 进度条填充动画 */
+        @keyframes progressFill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* 初始化按钮样式 */
+        .initialize-btn {
+            background: transparent;
+            border: 2px solid #6366f1;
+            color: #6366f1;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        /* 按钮hover效果 */
+        .initialize-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+            transform: translateY(-2px);
+        }
+
         /* ========== 主页面样式 ========== */
         :root {
             --primary-dark: #0a1929;
@@ -73,6 +202,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
             position: relative;
             z-index: 1;
+            display: none; /* 默认隐藏主内容 */
         }
 
         .header {
@@ -916,7 +1046,13 @@
                 letter-spacing: 1px;
             }
 
-            /* 移动端加载动画适配 - 已删除 */
+            /* 移动端加载动画适配 */
+            .echo-title {
+                font-size: 4rem;
+            }
+            .loading-log, .progress-container {
+                width: 300px;
+            }
         }
 
         /* 滚动条美化 */
@@ -969,6 +1105,64 @@
             /* ========== 关键修改：确保容器有足够空间让内容居中 ========== */
             width: fit-content;
             height: fit-content;
+        }
+
+        /* 图片格子样式 - 固定3:4比例（适配科技风） */
+        .grid-item {
+            width: 120px;       /* 宽：120px */
+            height: 160px;      /* 高：160px（120*4/3），严格3:4比例 */
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* 辅助图片定位 */
+            z-index: 1; /* 确保图片在文本上方 */
+            box-shadow: 0 0 10px var(--shadow-blue), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* 图片样式 - 按3:4比例适配，不拉伸变形 */
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* 保持图片比例，裁剪多余部分，不拉伸 */
+            object-position: center; /* 居中显示图片核心内容 */
+            transition: all 0.2s ease;
+            border-radius: 6px;
+        }
+
+        /* 隐藏图片后的样式 */
+        .grid-item.hidden {
+            opacity: 0;
+            cursor: default;
+            pointer-events: none; /* 防止点击已隐藏的元素 */
+        }
+
+        /* 正确点击的动画效果（科技风适配） */
+        .grid-item.correct-click {
+            border-color: var(--accent-cyan); /* 青色边框标识正确 */
+            box-shadow: 0 0 15px var(--shadow-cyan);
+            transform: scale(0.95); /* 轻微缩小效果 */
+        }
+
+        /* 错误点击的动画效果（科技风适配） */
+        .grid-item.wrong-click {
+            border-color: var(--accent-pink); /* 粉色边框标识错误 */
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+            animation: shake 0.3s ease; /* 抖动动画 */
+        }
+
+        /* 抖动动画关键帧 */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
 
         /* 最终文本显示样式 - 科技风适配 */
@@ -1029,11 +1223,41 @@
         .result-text.show {
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
+  }
+        /* 给iframe设置插件样式，模拟窗口效果 */
+        .simulation-plugin {
+            width: 800px;
+            height: 700px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden; /* 隐藏滚动条（可选） */
         }
     </style>
 </head>
 <body>
-    <!-- 主内容区 - 直接显示 -->
+    <!-- 加载动画区域 -->
+    <div id="loading-screen">
+        <h1 class="echo-title">Data loading...</h1>
+        <div class="singularity-log">SINGULARITY LOG</div>
+
+        <div class="loading-log">
+            <p>> Loading Memory Clusters...</p>
+            <p>> Decrypting Archive...</p>
+            <p>> Syncing Timeline Data...</p>
+            <p>> Optimizing Render Engine...</p>
+            <p>> Establishing Connection...</p>
+            <p>> ...</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <button class="initialize-btn" id="initializeBtn">Start</button>
+    </div>
+
+    <!-- 主内容区 - 默认隐藏 -->
     <div class="crt-container">
         <!-- 顶部标题栏 -->
         <header class="header">
@@ -1101,10 +1325,11 @@
                     </div>
                 </div>
                 <div id="interact-detour" class="content-block">
-                    <div class="content-card">
+                    <div class="card-content">
                         <h3 class="card-title">模拟实验</h3>
-                        <div class="card-content">
-
+                        <div class="content-card">
+        <!-- 核心：iframe嵌入模拟页面 -->
+                            <style>
     .sim-plugin {
         /* 基础尺寸：电脑端 */
         width: 700px;
@@ -1133,11 +1358,12 @@
         }
     }
 </style>
-                         
+
+                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class=".simulation-plugin" ></iframe>
                     </div>
                     </div>
                 </div>
-            </section>
+             </section>
 
             <!-- 3.网络表达体验模拟 -->
             <section id="spreadable" class="content-section">
@@ -1145,7 +1371,7 @@
                 <div id="spread-copy-frame" class="content-block active">
                     <div class="content-card">
                          <div class="card-content">
-                             <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响</p>
+                             <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响。</p>
                              <!-- 新增：开始模拟按钮 -->
                              <div class="start-simulate-btn-container">
                                 <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
@@ -1191,7 +1417,7 @@
 
                 <!-- ========== 新增：进入下一调查阶段按钮 ========== -->
                 <div class="next-step-btn-container">
-                    <a href="https://www.你的链接.com" class="next-step-btn" target="_blank">玩梗的边界是什么？</a>
+                    <a href="https://www.你的链接.com" class="next-step-btn" >玩梗的边界是什么？</a>
                 </div>
             </section>
         </main>
@@ -1199,6 +1425,20 @@
 
     <!-- JavaScript逻辑 -->
     <script>
+        // ========== 加载动画逻辑 ==========
+        const initializeBtn = document.getElementById('initializeBtn');
+        const loadingScreen = document.getElementById('loading-screen');
+        const mainContent = document.querySelector('.crt-container');
+
+        // 点击初始化按钮隐藏加载动画，显示主内容
+        initializeBtn.addEventListener('click', () => {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.display = 'grid'; // 显示主内容
+            }, 800);
+        });
+
         // 左侧导航按钮切换逻辑
         const navBtns = document.querySelectorAll('.nav-btn');
         const contentSections = document.querySelectorAll('.content-section');
@@ -1257,5 +1497,4 @@
         });
     </script>
 </body>
-
 </html>
