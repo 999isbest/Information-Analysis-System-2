@@ -1179,7 +1179,6 @@
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
         }
-
     </style>
 </head>
 <body>
@@ -1369,21 +1368,8 @@
                 });
             });
         });
-
-        // 复制框架函数
-        function copyFrame() {
-            const frameText = document.getElementById('frameText');
-            frameText.select();
-            document.execCommand('copy');
-
-            // 显示复制成功提示
-            const copyToast = document.getElementById('copyToast');
-            copyToast.classList.add('show');
-            setTimeout(() => {
-                copyToast.classList.remove('show');
-            }, 2000);
-        }
 </body>
 </html>
+
 
 
