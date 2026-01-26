@@ -1310,8 +1310,44 @@
                     <div class="content-card">
                         <h3 class="card-title">模拟实验</h3>
                         <div class="card-content">
-                            <!-- 插入iframe模拟实验窗口 -->
-                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class="sim-plugin" ></iframe>
+                             <!-- 修复后的iframe样式和属性 -->
+            <iframe
+                src="https://999isbest.github.io/Bandwagon-Effect/"
+                class="sim-plugin"
+                title="群体玩梗行为模拟实验"
+                sandbox="allow-scripts allow-same-origin"
+                loading="lazy"
+            ></iframe>
+                        <style>
+    .sim-plugin {
+        /* 基础尺寸：电脑端 */
+        width: 700px;
+        height: 1000px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* 平板端适配 */
+    @media (max-width: 992px) {
+        .sim-plugin {
+            width: 90%;    /* 宽度占屏幕90% */
+            height: 600px; /* 降低高度 */
+        }
+    }
+
+    /* 手机端适配 */
+    @media (max-width: 768px) {
+        .sim-plugin {
+            width: 100%;   /* 宽度占满屏幕 */
+            height: 500px; /* 进一步降低高度 */
+            border-radius: 0; /* 去掉圆角，适配手机 */
+        }
+    }
+</style>
+
                         </div>
                     </div>
                 </div>
