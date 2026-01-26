@@ -1179,27 +1179,7 @@
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
         }
-      
-/* 容器样式：实现水平居中，并可根据需要调整垂直居中 */
-.img-container {
-    /* 核心：让容器内的图片水平居中 */
-    text-align: center;
-    /* 可选：如果需要垂直居中，可根据父元素高度调整，这里给一个通用示例 */
-    display: flex;
-    justify-content: center; /* 水平居中（flex方式，优先级高于text-align） */
-    align-items: center;     /* 垂直居中 */
-    /* 清除默认边距 */
-    margin: 0 auto;
-}
 
-.img-container img {
-    width: 400px; /* 你指定的宽度 */
-    height: auto; /* 保持宽高比，防止变形 */
-    border-radius: 8px; /* 圆角 */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 阴影 */
-    /* 可选：防止图片超出容器 */
-    max-width: 100%;
-}
     </style>
 </head>
 <body>
@@ -1405,4 +1385,5 @@
         }
 </body>
 </html>
+
 
