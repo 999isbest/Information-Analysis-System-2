@@ -1300,8 +1300,7 @@
                     <div class="content-card">
                         <h3 class="card-title">模拟实验</h3>
                         <div class="card-content">
-                           <div class="start-simulate-btn-container">
-                                <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
+                          ?
                         </div>
                     </div>
                 </div>
@@ -1312,18 +1311,14 @@
                 <h2 class="section-title">网络表达体验模拟</h2>
                 <div class="main-tab-nav">
                     <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响</p>
-                </div>
+                
                 <!-- 开始模拟按钮 -->
                 <div class="start-simulate-btn-container">
-                    <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
-                     // ========== 新增：开始模拟按钮点击事件 ==========
-        const startSimulateBtn = document.getElementById('startSimulateBtn');
-        startSimulateBtn.addEventListener('click', () => {
-            // 关键修改：使用window.location.href在当前页面跳转
-            window.location.href = 'https://999isbest.github.io/moni1/';
-        });
+                                <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
                 </div>
-                
+                 </div>
+            </section>
+            
             <!-- 4. 分析总结模块 -->
             <section id="analysis" class="content-section">
                 <h2 class="section-title">分析总结</h2>
@@ -1419,7 +1414,13 @@
                 // 可在这里添加模拟逻辑
             });
         }
-
+  // ========== 新增：开始模拟按钮点击事件 ==========
+        const startSimulateBtn = document.getElementById('startSimulateBtn');
+        startSimulateBtn.addEventListener('click', () => {
+            // 关键修改：使用window.location.href在当前页面跳转
+            window.location.href = 'https://999isbest.github.io/moni1/';
+        });
+        
         // 复制框架函数（保留原有逻辑）
         function copyFrame() {
             const frameText = document.getElementById('frameText');
@@ -1631,4 +1632,5 @@
     </script>
 </body>
 </html>
+
 
