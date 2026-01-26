@@ -1223,16 +1223,7 @@
         .result-text.show {
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
-  }
-        /* 给iframe设置插件样式，模拟窗口效果 */
-        .simulation-plugin {
-            width: 800px;
-            height: 700px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden; /* 隐藏滚动条（可选） */
-        }
+
     </style>
 </head>
 <body>
@@ -1325,10 +1316,10 @@
                     </div>
                 </div>
                 <div id="interact-detour" class="content-block">
-                    <div class="card-content">
+                    <div class="content-card">
                         <h3 class="card-title">模拟实验</h3>
-                        <div class="content-card">
-        <!-- 核心：iframe嵌入模拟页面 -->
+                        <div class="card-content">
+                            <!-- 核心：iframe嵌入模拟页面 -->
                             <style>
     .sim-plugin {
         /* 基础尺寸：电脑端 */
@@ -1358,12 +1349,11 @@
         }
     }
 </style>
-
-                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class=".simulation-plugin" ></iframe>
+                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class="sim-plugin" ></iframe>
                     </div>
                     </div>
                 </div>
-             </section>
+            </section>
 
             <!-- 3.网络表达体验模拟 -->
             <section id="spreadable" class="content-section">
