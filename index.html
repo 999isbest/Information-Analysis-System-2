@@ -1300,7 +1300,8 @@
                     <div class="content-card">
                         <h3 class="card-title">模拟实验</h3>
                         <div class="card-content">
-                            <p class="highlight-text">待补充模拟实验相关内容...</p>
+                           <div class="start-simulate-btn-container">
+                                <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
                         </div>
                     </div>
                 </div>
@@ -1315,16 +1316,22 @@
                 <!-- 开始模拟按钮 -->
                 <div class="start-simulate-btn-container">
                     <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
+                     // ========== 新增：开始模拟按钮点击事件 ==========
+        const startSimulateBtn = document.getElementById('startSimulateBtn');
+        startSimulateBtn.addEventListener('click', () => {
+            // 关键修改：使用window.location.href在当前页面跳转
+            window.location.href = 'https://999isbest.github.io/moni1/';
+        });
                 </div>
-                <!-- 图片 -->
-                <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0fd0ef46a7f549ef812f240d79e1a5e2.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260124215116CB3EE5759B6ED00B0EE7&rrcfp=8a172a1a&x-expires=1769867476&x-signature=owGY9r054VDttKz0CAzgkeAWlDU%3D" title="黑白人像" class="reference-img">
-            </section>
-
+                
             <!-- 4. 分析总结模块 -->
             <section id="analysis" class="content-section">
                 <h2 class="section-title">分析总结</h2>
                 <div class="content-card">
                     <div class="card-content">
+                        <!-- 图片 -->
+                <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0fd0ef46a7f549ef812f240d79e1a5e2.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260124215116CB3EE5759B6ED00B0EE7&rrcfp=8a172a1a&x-expires=1769867476&x-signature=owGY9r054VDttKz0CAzgkeAWlDU%3D" title="黑白人像" class="reference-img">
+            </section>
                         <p class="analysis-text no-highlight">正如尼尔·波兹曼在《娱乐至死》中警示：<span class="underline-text">“一切公众话语日渐以娱乐的方式出现，并成为一种文化精神。我们的政治、宗教、新闻、体育、教育和商业都心甘情愿地成为娱乐的附庸，毫无怨言，甚至无声无息，其结果是我们成了一个娱乐至死的物种。”</span></p>
                         <p class="analysis-text no-highlight">娱乐本身不是问题，<span class="emphasis-text">但当所有公共话语都变成娱乐的附庸，当不经思考的网络玩梗毫无节制，当个体责任消解于群体浪潮</span>，我们将逐渐丧失理性讨论的能力，原本承载创意的表达形式也会异化为<span class="emphasis-text">网络暴力的遮羞布。</span></p>
                     </div>
@@ -1624,3 +1631,4 @@
     </script>
 </body>
 </html>
+
