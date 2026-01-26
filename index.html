@@ -1179,6 +1179,27 @@
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
         }
+      
+/* 容器样式：实现水平居中，并可根据需要调整垂直居中 */
+.img-container {
+    /* 核心：让容器内的图片水平居中 */
+    text-align: center;
+    /* 可选：如果需要垂直居中，可根据父元素高度调整，这里给一个通用示例 */
+    display: flex;
+    justify-content: center; /* 水平居中（flex方式，优先级高于text-align） */
+    align-items: center;     /* 垂直居中 */
+    /* 清除默认边距 */
+    margin: 0 auto;
+}
+
+.img-container img {
+    width: 400px; /* 你指定的宽度 */
+    height: auto; /* 保持宽高比，防止变形 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 阴影 */
+    /* 可选：防止图片超出容器 */
+    max-width: 100%;
+}
     </style>
 </head>
 <body>
@@ -1217,122 +1238,72 @@
                 <h3>走红原因分析</h3>
             </div>
             <div class="nav-buttons">
-                <button class="nav-btn active" data-target="fun">趣味性</button>
-                <button class="nav-btn" data-target="interact">互动性</button>
-                <button class="nav-btn" data-target="spreadable">易传播性</button>
+                 <button class="nav-btn active" data-target="fun">批判对象转变</button>
+                <button class="nav-btn" data-target="interact">从众效应</button>
+                <button class="nav-btn" data-target="spreadable">网络表达体验模拟</button>
                 <button class="nav-btn" data-target="analysis">分析总结</button>
             </div>
         </aside>
 
         <!-- 主内容区 -->
         <main class="main-content-area">
-            <!-- 1. 趣味性模块 - 核心修改区域 -->
             <section id="fun" class="content-section active">
-                <h2 class="section-title">趣味性</h2>
+                <h2 class="section-title">批判对象转变</h2>
                 <div class="content-card">
                     <div class="card-content">
                         <!-- 第一段文字 - 删除括号，保留强调样式 -->
-                        <p class="highlight-text">“参考文献”梗的走红，核心在于<span class="emphasis-text">学术格式与“抽象内容”结合</span>产生的趣味性。</p>
+                        <p class="highlight-text">起初，“参考文献”梗作为年轻人缓解交流尴尬的创新表达方式，聚焦的<span class="emphasis-text">批判对象是“事”</span>，即“对事不对人”。</p>
                         <!-- 替换为新的图片链接 -->
-                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/913a8933c5b14224b69307705f914f35.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121040942A09371296B95AF21F4BB&rrcfp=8a172a1a&x-expires=1769544582&x-signature=tMO4GS0HF%2Fq9T%2F11rX%2Bo%2Fhy5fC8%3D" alt="法考毁了我的女儿 参考文献梗示例" class="reference-img">
+                       <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/2f6eed960d8b439a9772909b9363f48d.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=202601242037290387BCC4C2C7030B0BD0&rrcfp=dafada99&x-expires=2085482249&x-signature=kEQ2MZvklXpkG%2By9Tl4764stkMY%3D" alt="参考文献呢 震撼首发 趣味回复示例" class="reference-img">
                         <!-- 第二段文字 - 删除括号，保留强调样式 -->
-                        <p class="highlight-text">当网友们将学术论文中代表<span class="emphasis-text">权威、严谨的“参考文献”格式</span>应用于<span class="emphasis-text">日常琐碎、甚至无厘头的生活话题</span>上，其形成的强烈认知反差使表达产生了颇具吸引力的幽默效果。</p>
+                        <p class="highlight-text">而如今，它却被频繁<span class="emphasis-text">滥用</span>于普通用户的日常分享下：  <span class="underline-text">有人倾诉成绩排名所带来的学习压力，被标注“参考文献[X]：《竞缘脑》”；有名校毕业的博主分享外国人不认识其学校的经历，被戏谑“震撼首发”，贴上“高人一等”的标签……</span></p>
+                        <p class="highlight-text">当<span class="emphasis-text">批判对象由“事”转变成“人”时，“参考文献”梗戏谑趣味的表达方式就已然异化为隐形的网络暴力</span>，其既掩盖了恶意玩梗的舆论压力，又背离了最初的传播初衷。</p>
                     </div>
                 </div>
             </section>
 
             <!-- 2. 互动性模块 -->
             <section id="interact" class="content-section">
-                <h2 class="section-title">互动性</h2>
+                <h2 class="section-title">从众效应</h2>
                 <div class="main-tab-nav">
-                    <button class="main-tab-btn active" data-block="interact-fun-reply">趣味回复</button>
-                    <button class="main-tab-btn" data-block="interact-detour">迂回表达</button>
+                    <button class="main-tab-btn active" data-block="interact-fun-reply">从众效应</button>
+                    <button class="main-tab-btn" data-block="interact-detour">模拟实验</button>
                 </div>
                 <div id="interact-fun-reply" class="content-block active">
                     <div class="content-card">
-                        <h3 class="card-title">趣味回复</h3>
+                        <h3 class="card-title">从众效应</h3>
                         <div class="card-content">
                             <!-- ========== 已替换为新图片链接 ========== -->
-                            <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/1a5fec0cf5c64bedb9fb630258599743.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012106110410CE70FC3F497F238F04&rrcfp=8a172a1a&x-expires=1769551865&x-signature=a2t%2FXM48Fkr%2FRvxwXfuj2P2r7ac%3D" alt="参考文献呢 震撼首发 趣味回复示例" class="reference-img">
+                            <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5be0f70976be47ec95eeca87b245b17d.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260124223627AF8CB30D7D77F80B6321&rrcfp=8a172a1a&x-expires=1769870187&x-signature=d1eemtkXVamj6jmNLNueaChwM%2FQ%3D" alt="从众效应" class="reference-img">
                             <!-- ========== 关键修改：添加highlight-text类统一字号为1.25rem ========== -->
-                            <p class="highlight-text">面对<span class="emphasis-text">抽象、无厘头的内容时</span>，网友们可以以”请问参考文献是什么？“等趣味回复融入帖子<span class="emphasis-text">幽默</span>的氛围。</p>
-                        </div>
-                    </div>
-                </div>
+                         <p class="highlight-text">当“玩烂梗”变成群体行为时，<span class="emphasis-text">从众效应</span>会进一步放大对他人的伤害。</p>
+                            <p class="highlight-text">当个体在盲目玩梗的集体行为中获得<span class="emphasis-text">特定圈层的认同感</span>时，其<span class="emphasis-text">同理心将在此过程中逐渐麻木</span>，取而代之的是<span class="emphasis-text">“法不责众”</span>的肆意与从众带来的快感……</p>
                 <div id="interact-detour" class="content-block">
                     <div class="content-card">
-                        <h3 class="card-title">迂回表达</h3>
+                        <h3 class="card-title">模拟实验</h3>
                         <div class="card-content">
-                            <!-- ========== 关键修改：替换第二张图片链接 ========== -->
-                            <div class="img-row-container">
-                                <!-- 第一张图片：保留原链接 -->
-                                <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/65fa3092eb7848349689f3aea48cddb7.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601210541129B2EBC0D3541A7211B10&rrcfp=8a172a1a&x-expires=1769550072&x-signature=4jAOkoajOukkKUM84uKMP0wOUUg%3D" alt="网络评论截图 迂回表达示例1" class="reference-img">
-                                <!-- 第二张图片：替换为指定的新图片链接 -->
-                                <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/814fab46136e4802bb98a6872c847f4d.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121055859FE71BC75E014BC1762AB&rrcfp=8a172a1a&x-expires=1769551139&x-signature=SHSwFTo7BhAJK3RyXl0etkiPssw%3D" alt="参考文献呢 震撼首发 评论示例" class="reference-img">
-                                <!-- ========== 新增：图片下方添加小字标注 ========== -->
-                                <div class="img-caption">（两种表达方式的对比）</div>
+                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class="sim-plugin" ></iframe>
                             </div>
-                            <!-- ========== 按要求修改的内容 ========== -->
-                            <p class="highlight-text">面对<span class="emphasis-text">难以认同的观点</span>时，网友们可以通过询问“参考文献是什么？”、惊呼“震撼首发！”这种<span class="emphasis-text">迂回</span>的表达方式，巧妙地弱化语言的攻击性，从而避免因直接质疑而产生的尴尬或冲突。</p>
-                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- 3. 易传播性模块 -->
             <section id="spreadable" class="content-section">
-                <h2 class="section-title">易传播性</h2>
+                <h2 class="section-title">网络表达体验模拟</h2>
                 <div class="main-tab-nav">
-                    <button class="main-tab-btn active" data-block="spread-copy-frame">复制框架</button>
-                    <button class="main-tab-btn" data-block="spread-chain">传播链</button>
-                </div>
-                <div id="spread-copy-frame" class="content-block active">
-                    <div class="content-card">
-                        <h3 class="card-title">复制框架</h3>
-                        <div class="card-content">
-                            <!-- 提示信息区域 -->
-                            <div class="hint" id="hint"></div>
-
-                            <!-- 九宫格容器 -->
-                            <div class="grid-container" id="gridContainer">
-                                <!-- 最终结果文本区域 - 移到九宫格容器内部 -->
-                                <div class="result-text" id="resultText">
-                                    “参考文献”梗标准化的复制框架，也降低了其传播门槛。网友只需保留“文献”的特定格式、替换具体主题，就能快速产生新的内容。
-                                </div>
-                                <!-- 九宫格图片会通过JS动态生成 -->
-                            </div>
-                            <!-- 新增：九宫格下方标注 -->
-                            <div class="grid-caption">（点击图片，找出相同格式的梗表达）</div>
-                        </div>
-                    </div>
-                </div>
-                <div id="spread-chain" class="content-block">
-                    <div class="content-card">
-                        <h3 class="card-title">传播链</h3>
-                        <div class="card-content">
-                            <p>“参考文献”梗的传播路径：</p>
-                            <div class="propagation-chain">
-                                <div class="chain-node">
-                                    <div class="node-dot"></div>
-                                    <div>原始梗：得知自己是人类，哭了整整一个下午</div>
-                                </div>
-                                <div class="chain-node">
-                                    <div class="node-dot"></div>
-                                    <div>二次创作(替换语境)：得知自己是法学生，哭了整整一个下午 </div>
-                                </div>
-                                <div class="chain-node">
-                                    <div class="node-dot"></div>
-                                    <div>迭代传播(丰富格式)：得知自己是广东人，吃着白切鸡哭了整整一下午 </div>
-
+                   <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响</p>
                                 </div>
                             </div>
                             <!-- ========== 新增的补充说明文字 - 添加样式 ========== -->
                             <p style="margin-top: 20px; text-align: justify; text-align-last: left;">
                                 <span class="underline-text">从“得知是广东人，吃着白切鸡哭了整整一个下午”的地域身份认同，到“得知周末要加班，摸鱼摸了一上午”的职场调侃</span>，标准化的格式使这一表达方式可批量化生产。<br>
                             <p style="text-align: justify; text-align-last: left; text-indent: 2em; line-height: 1.6; margin: 0;">
-                             当一个帖子被标注为“参考文献”后，会成为新内容的引用素材，而新的素材又会被后续网友当作新的“文献”应用于各类语境，形成<span class="chain-color-text">不断更新迭代的传播链</span>。
-                            </p>
-                        </div>
+                             当一个帖子被标注为“参考文献”后，会成为新内容的引用素材，而新的素材又会被后续网友当作新的“文献”应用于各类语境，形成<span class="chain-color-text">不断更新迭代的传播链</span>。 </p>
+                          <!-- 新增：开始模拟按钮 -->
+                             <div class="start-simulate-btn-container">
+                                <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
+                    </div>
                     </div>
                 </div>
             </section>
@@ -1342,15 +1313,17 @@
                 <h2 class="section-title">分析总结</h2>
                 <div class="content-card">
                     <div class="card-content">
-                        <p class="analysis-text">“参考文献”梗的走红，核心在于学术格式与“抽象内容”结合产生的趣味性。当网友们将学术论文中代表权威、严谨的“参考文献”格式应用于日常琐碎、甚至无厘头的生活话题上，其形成的强烈认知反差使表达产生了颇具吸引力的幽默效果。面对难以认同的观点时，网友们可以通过“询问‘参考文献是什么？’”这种迂回的方式，巧妙地弱化表达的攻击性，从而避免因直接质疑而产生的尴尬或冲突。</p>
-                        <!-- ========== 关键修改：为这段文字添加no-highlight类，取消所有突出效果 ========== -->
-                        <p class="analysis-text no-highlight">除此之外，“参考文献”梗标准化的复制框架，也降低了其传播门槛。网友只需保留“文献”的特定格式、替换具体主题，就能快速产生新的内容。从“得知是广东人，吃着白切鸡哭了整整一个下午”的地域身份认同，到“得知周末要加班，摸鱼摸了一上午”的职场调侃，标准化的格式使这一表达方式可批量化生产——当一个帖子被标注为“参考文献”后，会成为新内容的引用素材，而新的素材又会被后续网友当作新的“文献”应用于各类语境，形成不断更新迭代的传播链。</p>
+                        <div class="img-container">
+<img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0fd0ef46a7f549ef812f240d79e1a5e2.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260124215116CB3EE5759B6ED00B0EE7&rrcfp=8a172a1a&x-expires=1769867476&x-signature=owGY9r054VDttKz0CAzgkeAWlDU%3D" title="黑白人像">
+  </div>
+                        <p class="analysis-text no-highlight">正如尼尔·波兹曼在《娱乐至死》中警示：<span class="underline-text">“一切公众话语日渐以娱乐的方式出现，并成为一种文化精神。我们的政治、宗教、新闻、体育、教育和商业都心甘情愿地成为娱乐的附庸，毫无怨言，甚至无声无息，其结果是我们成了一个娱乐至死的物种。”</span></p>
+                         <p class="analysis-text no-highlight">娱乐本身不是问题，<span class="emphasis-text">但当所有公共话语都变成娱乐的附庸，当不经思考的网络玩梗毫无节制，当个体责任消解于群体浪潮</span>，我们将逐渐丧失理性讨论的能力，原本承载创意的表达形式也会异化为<span class="emphasis-text">网络暴力的遮羞布。</span></p>
                     </div>
                 </div>
 
                 <!-- ========== 新增：进入下一调查阶段按钮 ========== -->
                  <div class="next-step-btn-container">
-                    <a href="https://999isbest.github.io/window/" class="next-step-btn">进入下一调查阶段</a>
+                    <a href="https://999isbest.github.io/window/" class="next-step-btn">玩梗的边界是什么？</a>
                 </div>
             </section>
         </main>
@@ -1435,198 +1408,5 @@
                 copyToast.classList.remove('show');
             }, 2000);
         }
-
-        // ========== 九宫格游戏逻辑 ==========
-        // 定义三组图片（数字对应九宫格的位置，从1开始）
-        const correctGroups = [
-            [1, 3, 7, 8],   // 第一组
-            [2, 5, 6],      // 第二组
-            [4, 9]          // 第三组
-        ];
-
-        // 定义自定义图片映射（key是图片位置1-9，value是图片URL）
-        const customImages = {
-            1: 'https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4ce8356bcad343f3acfe0e07d9c1996c.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104394990B73B48376B6026F5DF&rrcfp=8a172a1a&x-expires=1769546389&x-signature=EOlT8q9UaszkbaVP5CUNylfBsrY%3D',
-            2: 'https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c7e1d5b933574a2b8f54b023ac004c2a.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=cJnZFVO5eFpwIAzYlu8ykiWKgX0%3D',
-            3: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/f48c577b485c41e5a95e6784b6ca8b24.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044057AF577B9C65D016263FBB&rrcfp=8a172a1a&x-expires=1769546457&x-signature=FkAjxYwkAtU94Wx3r80cp0UNIzU%3D',
-            4: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ed64fa36be194fcc8cd82fd5d55a93ad.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601210446200D151879E7E4E8167B09&rrcfp=8a172a1a&x-expires=1769546780&x-signature=wmRW04hyu6YfJ%2FuFcx85UczryW4%3D',
-            5: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4c8f5afbc401490ab5f8f66271e452ae.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=7W%2FfZlngFfOLi62WPbaiFG1CDU0%3D',
-            6:'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/19daea4835bd47b6995d95c22bd6879e.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=f3FTLrEgFuu9vU1uZpIE6Vm7H0w%3D',
-            7: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/fa0d9b05b562484b9c7a93c4131aad7b.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044439B1BDB876242F11260F1F&rrcfp=8a172a1a&x-expires=1769546679&x-signature=IZGdke%2F44J0ne5NxUYlE9Hk5c9g%3D',
-            8: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8889904b3092435e96e5d8eaeb566fb3.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044439B1BDB876242F11260F1F&rrcfp=8a172a1a&x-expires=1769546679&x-signature=E3Ya%2BCPWLugS9zMf93JgFlu%2F%2Fzk%3D',
-            9: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/472b8ab443414c85a11be421e580d0ac.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601210446200D151879E7E4E8167B09&rrcfp=8a172a1a&x-expires=1769546780&x-signature=4E5gnB27UFP5DeLHTKxmomeKTVs%3D'
-        };
-
-        // 重构状态管理：为每组维护独立的已点击项和完成状态
-        let groupStates = [
-            { clicked: new Set(), completed: false }, // 第一组状态
-            { clicked: new Set(), completed: false }, // 第二组状态
-            { clicked: new Set(), completed: false }  // 第三组状态
-        ];
-        // 新增：记录当前用户正在操作的目标组（-1表示未开始）
-        let currentTargetGroup = -1;
-        // 记录已消失的图片ID
-        let hiddenImages = new Set();
-        // 获取页面元素
-        const gridContainer = document.getElementById('gridContainer');
-        const hint = document.getElementById('hint');
-        const resultText = document.getElementById('resultText');
-
-        // 初始化九宫格
-        function initGrid() {
-            // 清空容器（保留result-text）
-            const resultTextEl = gridContainer.querySelector('.result-text');
-            gridContainer.innerHTML = '';
-            gridContainer.appendChild(resultTextEl);
-
-            // 生成9个图片格子
-            for (let i = 1; i <= 9; i++) {
-                const gridItem = document.createElement('div');
-                gridItem.className = 'grid-item';
-                gridItem.dataset.id = i; // 给每个格子添加唯一标识
-
-                // 创建图片元素
-                const img = document.createElement('img');
-                // 使用自定义图片（已覆盖所有位置）
-                img.src = customImages[i];
-                img.alt = `图片${i}`;
-
-                gridItem.appendChild(img);
-                // 添加点击事件
-                gridItem.addEventListener('click', handleItemClick);
-                gridContainer.appendChild(gridItem);
-            }
-        }
-
-        // 批量隐藏指定组的所有图片
-        function hideGroupImages(groupIndex) {
-            const group = correctGroups[groupIndex];
-            group.forEach(id => {
-                const item = document.querySelector(`.grid-item[data-id="${id}"]`);
-                if (item) {
-                    item.classList.remove('correct-click', 'wrong-click');
-                    item.classList.add('hidden');
-                    hiddenImages.add(id);
-                }
-            });
-            // 标记该组已完成
-            groupStates[groupIndex].completed = true;
-            // 重置当前目标组（允许用户开始下一组）
-            currentTargetGroup = -1;
-        }
-
-        // 重置所有未完成组的图片状态（错误时调用）
-        function resetUnfinishedImages() {
-            // 遍历所有图片，只恢复未被永久隐藏的图片
-            for (let i = 1; i <= 9; i++) {
-                if (!hiddenImages.has(i)) {
-                    const item = document.querySelector(`.grid-item[data-id="${i}"]`);
-                    if (item) {
-                        item.classList.remove('correct-click', 'wrong-click');
-                    }
-                }
-            }
-            // 清空所有未完成组的已点击记录
-            groupStates.forEach((state, index) => {
-                if (!state.completed) {
-                    state.clicked.clear();
-                }
-            });
-            // 重置当前目标组
-            currentTargetGroup = -1;
-        }
-
-        // 查找点击的ID属于哪个组（返回组索引，-1表示不属于任何组）
-        function findGroupByItemId(itemId) {
-            for (let i = 0; i < correctGroups.length; i++) {
-                if (correctGroups[i].includes(itemId)) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        // 处理图片点击事件
-        function handleItemClick(e) {
-            // 获取点击的图片ID（转为数字）
-            const clickedId = parseInt(e.currentTarget.dataset.id);
-            const clickedItem = e.currentTarget;
-
-            // 如果图片已经消失/所属组已完成，不处理
-            if (hiddenImages.has(clickedId)) {
-                return;
-            }
-
-            // 查找点击的图片属于哪个组
-            const groupIndex = findGroupByItemId(clickedId);
-
-            // 检查是否点击了有效组的图片
-            if (groupIndex !== -1 && !groupStates[groupIndex].completed) {
-                // 新增逻辑：检测跨组点击
-                if (currentTargetGroup === -1) {
-                    // 首次点击，设置当前目标组
-                    currentTargetGroup = groupIndex;
-                } else if (currentTargetGroup !== groupIndex) {
-                    // 跨组点击，判定为错误
-                    clickedItem.classList.add('wrong-click');
-                    hint.textContent = '选择错误';
-
-                    // 延迟重置，让用户看到错误动画
-                    setTimeout(() => {
-                        resetUnfinishedImages();
-                    }, 300);
-                    return; // 终止后续逻辑
-                }
-
-                const currentGroup = correctGroups[groupIndex];
-                const currentGroupState = groupStates[groupIndex];
-
-                // 正确：添加反馈样式并保留
-                clickedItem.classList.add('correct-click');
-                // 记录已点击的同组图片
-                currentGroupState.clicked.add(clickedId);
-
-                // 清空错误提示
-                hint.textContent = '';
-
-                // 检查当前组是否全部点击完成
-                if (currentGroupState.clicked.size === currentGroup.length) {
-                    // 延迟隐藏，让用户看到反馈效果
-                    setTimeout(() => {
-                        // 隐藏当前组所有图片
-                        hideGroupImages(groupIndex);
-
-                        // 检查是否所有图片都消失了
-                        checkAllHidden();
-                    }, 300);
-                }
-            } else {
-                // 错误：点击了不属于任何组/已完成组的图片
-                clickedItem.classList.add('wrong-click');
-                hint.textContent = '选择错误';
-
-                // 延迟重置，让用户看到错误动画
-                setTimeout(() => {
-                    // 重置状态
-                    resetUnfinishedImages();
-                }, 300);
-            }
-        }
-
-        // 检查是否所有图片都消失
-        function checkAllHidden() {
-           // 检查是否所有组都已完成
-            const allCompleted = groupStates.every(state => state.completed);
-
-            if (allCompleted) {
-                // 显示结果文本：添加show类触发透明度动画
-                resultText.classList.add('show');
-            }
-        }
-
-        // 初始化游戏
-        initGrid();
-    </script>
 </body>
 </html>
-
