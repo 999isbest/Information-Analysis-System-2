@@ -1214,6 +1214,16 @@
             opacity: 1;
             z-index: 2; /* 显示时层级高于隐藏的图片 */
         }
+
+        /* ========== 新增：iframe样式 ========== */
+        .sim-plugin {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px var(--shadow-blue);
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -1300,7 +1310,8 @@
                     <div class="content-card">
                         <h3 class="card-title">模拟实验</h3>
                         <div class="card-content">
-                          ?
+                            <!-- 插入iframe模拟实验窗口 -->
+                            <iframe src="https://999isbest.github.io/Bandwagon-Effect/" class="sim-plugin" ></iframe>
                         </div>
                     </div>
                 </div>
@@ -1309,25 +1320,25 @@
             <!-- 3. 网络表达体验模拟模块 -->
             <section id="spreadable" class="content-section">
                 <h2 class="section-title">网络表达体验模拟</h2>
-                <div class="main-tab-nav">
-                    <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响</p>
-                
+                <!-- 给说明文字添加卡片背景 -->
+                <div class="content-card">
+                    <div class="card-content">
+                        <p class="highlight-text">通过模拟“参考文献”梗异化前后的两个阶段，深入体会梗表达批判对象由“事”转变为“人”的危害，以及群众效应对网络舆论的影响。</p>
+                    </div>
+                </div>
                 <!-- 开始模拟按钮 -->
                 <div class="start-simulate-btn-container">
-                                <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
+                    <button class="start-simulate-btn" id="startSimulateBtn">开始模拟</button>
                 </div>
-                 </div>
-            </section>
-            
+ </section>
             <!-- 4. 分析总结模块 -->
             <section id="analysis" class="content-section">
                 <h2 class="section-title">分析总结</h2>
                 <div class="content-card">
                     <div class="card-content">
-                        <!-- 图片 -->
-                <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0fd0ef46a7f549ef812f240d79e1a5e2.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260124215116CB3EE5759B6ED00B0EE7&rrcfp=8a172a1a&x-expires=1769867476&x-signature=owGY9r054VDttKz0CAzgkeAWlDU%3D" title="黑白人像" class="reference-img">
-            </section>
                         <p class="analysis-text no-highlight">正如尼尔·波兹曼在《娱乐至死》中警示：<span class="underline-text">“一切公众话语日渐以娱乐的方式出现，并成为一种文化精神。我们的政治、宗教、新闻、体育、教育和商业都心甘情愿地成为娱乐的附庸，毫无怨言，甚至无声无息，其结果是我们成了一个娱乐至死的物种。”</span></p>
+                        <!-- 添加指定的黑白人像图片 -->
+                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0fd0ef46a7f549ef812f240d79e1a5e2.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260124215116CB3EE5759B6ED00B0EE7&rrcfp=8a172a1a&x-expires=1769867476&x-signature=owGY9r054VDttKz0CAzgkeAWlDU%3D" title="黑白人像" class="reference-img">
                         <p class="analysis-text no-highlight">娱乐本身不是问题，<span class="emphasis-text">但当所有公共话语都变成娱乐的附庸，当不经思考的网络玩梗毫无节制，当个体责任消解于群体浪潮</span>，我们将逐渐丧失理性讨论的能力，原本承载创意的表达形式也会异化为<span class="emphasis-text">网络暴力的遮羞布。</span></p>
                     </div>
                 </div>
@@ -1406,14 +1417,15 @@
             });
         });
 
-  // ========== 新增：开始模拟按钮点击事件 ==========
+        // ========== 开始模拟按钮点击事件 - 修改为跳转指定链接 ==========
         const startSimulateBtn = document.getElementById('startSimulateBtn');
-        startSimulateBtn.addEventListener('click', () => {
-            // 关键修改：使用window.location.href在当前页面跳转
-            window.location.href = 'https://999isbest.github.io/moni1/';
-        });
-         }
-        
+        if (startSimulateBtn) {
+            startSimulateBtn.addEventListener('click', () => {
+                // 在当前页面跳转到指定链接
+                window.location.href = 'https://999isbest.github.io/moni1';
+            });
+        }
+
         // 复制框架函数（保留原有逻辑）
         function copyFrame() {
             const frameText = document.getElementById('frameText');
@@ -1444,9 +1456,9 @@
         const customImages = {
             1: 'https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4ce8356bcad343f3acfe0e07d9c1996c.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104394990B73B48376B6026F5DF&rrcfp=8a172a1a&x-expires=1769546389&x-signature=EOlT8q9UaszkbaVP5CUNylfBsrY%3D',
             2: 'https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c7e1d5b933574a2b8f54b023ac004c2a.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=cJnZFVO5eFpwIAzYlu8ykiWKgX0%3D',
-             3: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/f48c577b485c41e5a95e6784b6ca8b24.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044057AF577B9C65D016263FBB&rrcfp=8a172a1a&x-expires=1769546457&x-signature=FkAjxYwkAtU94Wx3r80cp0UNIzU%3D',
+            3: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/f48c577b485c41e5a95e6784b6ca8b24.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044057AF577B9C65D016263FBB&rrcfp=8a172a1a&x-expires=1769546457&x-signature=FkAjxYwkAtU94Wx3r80cp0UNIzU%3D',
             4: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ed64fa36be194fcc8cd82fd5d55a93ad.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601210446200D151879E7E4E8167B09&rrcfp=8a172a1a&x-expires=1769546780&x-signature=wmRW04hyu6YfJ%2FuFcx85UczryW4%3D',
-            5: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4c8f5afbc401490ab5f8f66271e452ae.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=7W%2FfZlngFfOLi62WPbaiFG1CDU0%3D',
+           5: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/4c8f5afbc401490ab5f8f66271e452ae.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=7W%2FfZlngFfOLi62WPbaiFG1CDU0%3D',
             6:'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/19daea4835bd47b6995d95c22bd6879e.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=2026012104454506D59E97744FE525DE54&rrcfp=8a172a1a&x-expires=1769546745&x-signature=f3FTLrEgFuu9vU1uZpIE6Vm7H0w%3D',
             7: 'https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/fa0d9b05b562484b9c7a93c4131aad7b.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044439B1BDB876242F11260F1F&rrcfp=8a172a1a&x-expires=1769546679&x-signature=IZGdke%2F44J0ne5NxUYlE9Hk5c9g%3D',
             8: 'https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8889904b3092435e96e5d8eaeb566fb3.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260121044439B1BDB876242F11260F1F&rrcfp=8a172a1a&x-expires=1769546679&x-signature=E3Ya%2BCPWLugS9zMf93JgFlu%2F%2Fzk%3D',
@@ -1540,7 +1552,7 @@
                 }
             }
             return -1;
-        }
+            }
 
         // 处理图片点击事件
         function handleItemClick(e) {
@@ -1625,6 +1637,3 @@
     </script>
 </body>
 </html>
-
-
-
