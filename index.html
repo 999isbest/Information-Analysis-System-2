@@ -1406,20 +1406,13 @@
             });
         });
 
-        // ========== 开始模拟按钮点击事件（可根据需求扩展） ==========
-        const startSimulateBtn = document.getElementById('startSimulateBtn');
-        if (startSimulateBtn) {
-            startSimulateBtn.addEventListener('click', () => {
-                alert('模拟功能即将开始，请稍候...');
-                // 可在这里添加模拟逻辑
-            });
-        }
   // ========== 新增：开始模拟按钮点击事件 ==========
         const startSimulateBtn = document.getElementById('startSimulateBtn');
         startSimulateBtn.addEventListener('click', () => {
             // 关键修改：使用window.location.href在当前页面跳转
             window.location.href = 'https://999isbest.github.io/moni1/';
         });
+         }
         
         // 复制框架函数（保留原有逻辑）
         function copyFrame() {
@@ -1632,5 +1625,6 @@
     </script>
 </body>
 </html>
+
 
 
